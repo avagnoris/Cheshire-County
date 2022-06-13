@@ -1,0 +1,140 @@
+#contact {
+  background-color: $red-accent;
+  text-align: center;
+  padding: 70px 30px;
+  scroll-margin-top: 73px;
+  h2 {
+    color: white;
+    font-size: 3.6rem;
+    font-weight: 600;
+    margin-bottom: 50px;
+  }
+
+  p {
+    color: white;
+    @include font14-lineheight20;
+    font-weight: 400;
+    margin-bottom: 27px;
+  }
+  #form2 {
+    background-color: #ffffff;
+    border-radius: 5px 5px 5px 5px;
+    margin: 0 auto;
+    max-width: 390px;
+
+    .form-wrapper {
+      @include flex-column;
+      padding: 33px 65px;
+
+      input[type="text"],
+      [type="tel"] {
+        border: none;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.493);
+        font-size: 1.2rem;
+        line-height: 2.4rem;
+        margin-top: 20px;
+        width: 100%;
+
+        &:nth-of-type(1) {
+          margin-top: 0;
+        }
+
+        &::placeholder {
+          color: $light-gray-accent;
+          padding: 7px;
+        }
+      }
+      .contact-separator {
+        display: flex;
+        margin-top: 20px;
+        text-align: left;
+
+        .personal {
+          display: flex;
+          gap: 5px;
+          align-items: center;
+        }
+
+        .company {
+          display: flex;
+          gap: 5px;
+          align-items: center;
+        }
+
+        input[type="radio"] {
+          @include input-radio;
+          &::before {
+            position: absolute;
+            content: "";
+            top: 3px;
+            left: 3px;
+            height: 0.8rem;
+            width: 0.8rem;
+            background-color: $green-accent;
+            border-radius: 50%;
+            opacity: 0;
+          }
+          &:checked {
+            border: 1px solid $green-accent;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+
+          &:checked::before {
+            opacity: 1;
+          }
+
+          &:checked + label {
+            color: black;
+            font-weight: 600;
+            opacity: 1;
+          }
+        }
+
+        label:nth-of-type(1) {
+          margin-right: 20px;
+          margin-top: 2px;
+          color: black;
+          opacity: 0.5;
+        }
+      }
+      button {
+        background-color: $green-accent;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 600;
+        height: 48px;
+        margin: 40px auto 0 auto;
+        width: 158px;
+
+        &:hover {
+          @include form-btn-hover;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .form-wrapper {
+    padding: 33px 35px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .form-wrapper {
+    padding: 33px 25px !important;
+  }
+
+  .contact-separator {
+    gap: 10px;
+  }
+}
+@media (max-width: 300px) {
+  .contact-separator {
+    flex-direction: column;
+  }
+}
